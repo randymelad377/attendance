@@ -9,6 +9,8 @@ import {
   IonButton,
   IonIcon
 } from '@ionic/angular';
+import { AddSemesterComponent } from '../component/add-semester/add-semester.component';
+import { EndSemesterComponent } from '../component/end-semester/end-semester.component';
 
 @Component({
   selector: 'app-semester',
@@ -21,14 +23,24 @@ import {
     IonRow,
     IonCol,
     IonButton,
-    IonIcon
-
+    IonIcon,
+    AddSemesterComponent,
+    EndSemesterComponent
   ],
 })
-export class SemesterComponent  implements OnInit {
+export class SemesterComponent{
+  
+  isSemesterOngoing = false;
 
-  constructor() { }
+  isEndOpen = false;
+  isAddOpen = false;
+  openAddSem() {
+    if (this.isSemesterOngoing) {
+      this.isEndOpen = true;
+      return;
+    }
 
-  ngOnInit() {}
+    this.isAddOpen = true;
+  }
 
 }

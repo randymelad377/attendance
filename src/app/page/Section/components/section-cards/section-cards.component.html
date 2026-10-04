@@ -6,8 +6,7 @@
 
         <ion-card-header class="card-icon">
           <div class="subject-name">
-            <h3>Subject Name</h3>
-            <p>Subject Code</p>
+            <h3>Section Name</h3>
           </div>
           <p>Status</p>
         </ion-card-header>
@@ -27,13 +26,14 @@
   </ion-row>
 
   <!-- Modal -->
-  <app-subject-modal
+  <app-section-modal
     [isOpen]="isModalOpen"
     (closed)="isModalOpen = false">
-  </app-subject-modal>
+  </app-section-modal>
 
-  <app-confirmation-modal
-    [isOpen]="isArchiveOpen"
-    (closed)="isArchiveOpen = false">
-  </app-confirmation-modal>
+    <app-confirmation-modal
+      [isOpen]="isArchiveOpen"
+      (closed)="isArchiveOpen = false">
+    </app-confirmation-modal>
+
 </ion-grid>

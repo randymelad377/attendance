@@ -10,13 +10,13 @@ import {
   IonCol,
   IonCardSubtitle
 } from '@ionic/angular';
-import { SubjectModalComponent } from '../subject-modal/subject-modal.component';
+import { SectionModalComponent } from '../section-modal/section-modal.component';
 import { ConfirmationModalComponent } from '../../../../component/confirmation-modal/confirmation-modal.component';
 
 @Component({
-  selector: 'app-subject-cards',
-  templateUrl: './subject-cards.component.html',
-  styleUrls: ['./subject-cards.component.scss'],
+  selector: 'app-section-cards',
+  templateUrl: './section-cards.component.html',
+  styleUrls: ['./section-cards.component.scss'],
   imports: [
   IonCard,
   IonCardHeader,
@@ -26,11 +26,11 @@ import { ConfirmationModalComponent } from '../../../../component/confirmation-m
   IonRow,
   IonCol,
   IonCardSubtitle,
-    SubjectModalComponent,
+    SectionModalComponent,
   ConfirmationModalComponent
 ],
 })
-export class SubjectCardsComponent{
+export class SectionCardsComponent{
 
   isModalOpen = false;
 

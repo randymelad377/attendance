@@ -1,0 +1,41 @@
+<ion-modal
+  [isOpen]="isOpen"
+  [initialBreakpoint]="0.35"
+  [breakpoints]="[0, 0.35]"
+  [handle]="true"
+  (didDismiss)="closeModal()"
+>
+  <ng-template>
+
+    <div class="confirmation-content">
+
+      <h2>Are you sure?</h2>
+
+      <p>
+        This action cannot be undone. Do you want to continue?
+      </p>
+
+      <div class="button-container">
+
+        <ion-button
+          fill="outline"
+          expand="block"
+          (click)="closeModal()"
+        >
+          Cancel
+        </ion-button>
+
+        <ion-button
+          color="danger"
+          expand="block"
+          (click)="confirmAction()"
+        >
+          Confirm
+        </ion-button>
+
+      </div>
+
+    </div>
+
+  </ng-template>
+</ion-modal>

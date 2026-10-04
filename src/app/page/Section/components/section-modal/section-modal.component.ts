@@ -1,16 +1,17 @@
 import { Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import { IonButton, IonModal } from '@ionic/angular';
+import { ConfirmationModalComponent } from '../../../../component/confirmation-modal/confirmation-modal.component';
 
 @Component({
-  selector: 'app-subject-modal',
-  templateUrl: './subject-modal.component.html',
-  styleUrls: ['./subject-modal.component.scss'],
+  selector: 'app-section-modal',
+  templateUrl: './section-modal.component.html',
+  styleUrls: ['./section-modal.component.scss'],
   imports: [
     IonModal,
-    IonButton
+    IonButton,
   ],
 })
-export class SubjectModalComponent{
+export class SectionModalComponent{
 
   @Input() isOpen = false;
 
@@ -19,5 +20,4 @@ export class SubjectModalComponent{
   closeModal() {
     this.closed.emit();
   }
-
 }

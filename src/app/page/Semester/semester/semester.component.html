@@ -11,7 +11,7 @@
       </ion-col>
 
       <ion-col size="auto">
-        <ion-button>
+        <ion-button (click)="openAddSem()">
           <i class="fa-solid fa-plus"></i>
           New
         </ion-button>
@@ -22,10 +22,20 @@
     <!-- Semester Cards -->
     <ion-row>
       <ion-col size="12">
-        <app-semester-cards></app-semester-cards>
+        <app-semester-cards [isOngoing]="isSemesterOngoing"> </app-semester-cards>
       </ion-col>
     </ion-row>
 
+     <!-- ADD SUBJECT -->
+  <app-add-semester
+    [isOpen]="isAddOpen"
+    (closed)="isAddOpen = false">
+  </app-add-semester>
+
+  <app-end-semester
+    [isOpen]="isEndOpen"
+    (closed)="isEndOpen = false">
+  </app-end-semester>
   </ion-grid>
 
 </ion-content>

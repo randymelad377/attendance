@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import {
   IonCard,
@@ -8,7 +8,8 @@ import {
   IonGrid,
   IonRow,
   IonCol,
-  IonCardSubtitle
+  IonCardSubtitle,
+  IonButton
 } from '@ionic/angular';
 
 @Component({
@@ -23,15 +24,14 @@ import {
   IonGrid,
   IonRow,
   IonCol,
-  IonCardSubtitle
+    IonCardSubtitle,
+  IonButton
 ],
 })
-export class SemesterCardsComponent  implements OnInit {
+export class SemesterCardsComponent{
 
   showMenu = false;
 
-  constructor() { }
-
-  ngOnInit() {}
-
+  @Input() isOngoing = false;
+  
 }

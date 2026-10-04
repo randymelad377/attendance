@@ -1,55 +1,106 @@
 .semester-card {
   margin: 0;
-  min-height: 130px;
+  min-height: 150px;
 
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
 
-  padding: 20px;
+  padding: 22px;
 
   background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
 
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 
   cursor: pointer;
 
-  transition: all 0.2s ease;
+  transition: 0.2s ease;
 }
 
-/* Card text */
+/* Card content */
 .semester-card .card-content {
-  flex: 1;
   padding: 0;
 }
 
+/* Title */
 .semester-card ion-card-title {
   margin: 0;
 
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 600;
+  line-height: 1.4;
 
-  color: #1f2937;
+  color: #222;
 }
 
+/* Status */
+.semester-card ion-card-title span {
+  margin-left: 8px;
+  padding: 4px 9px;
+
+  border-radius: 4px;
+
+  background: #f1f1f1;
+  color: #666;
+
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Active status */
+.semester-card:first-child ion-card-title span {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+/* School year */
 .semester-card ion-card-subtitle {
   display: block;
 
-  margin-top: 6px;
+  margin-top: 8px;
 
-  font-size: 13px;
-  line-height: 1.4;
+  font-size: 16px;
+  font-weight: 400;
 
-  color: #6b7280;
+  color: #666;
 }
 
-/* Arrow circle */
-.semester-card .card-arrow {
-  width: 38px;
-  height: 38px;
+/* Action buttons */
+.semester-card .action-container {
+  display: flex;
+  gap: 8px;
 
-  flex-shrink: 0;
+  margin-top: 20px;
+}
+
+.semester-card .action-container ion-button {
+  --background: #f5f5f5;
+  --background-hover: #e9e9e9;
+  --color: #333;
+
+  --border-radius: 6px;
+
+  height: 38px;
+  margin: 0;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  text-transform: none;
+
+  flex: 1;
+}
+
+/* Arrow */
+.semester-card .card-arrow {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+
+  width: 40px;
+  height: 40px;
 
   display: flex;
   align-items: center;
@@ -57,25 +108,47 @@
 
   border-radius: 50%;
 
-  background: #f3f4f6;
-  color: #4b5563;
+  background: #f3f3f3;
+  color: #555;
 
-  transition: all 0.2s ease;
+  transition: 0.2s ease;
 }
 
 .semester-card .card-arrow i {
-  font-size: 13px;
+  font-size: 15px;
 }
 
 /* Hover */
 .semester-card:hover {
-  border-color: #3880ff;
-  box-shadow: 0 6px 18px rgba(56, 128, 255, 0.12);
+  border-color: #bdbdbd;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+
   transform: translateY(-2px);
 }
 
 .semester-card:hover .card-arrow {
   background: #3880ff;
-  color: #ffffff;
+  color: #fff;
+
   transform: translateX(3px);
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .semester-card {
+    padding: 20px;
+  }
+
+  .semester-card ion-card-title {
+    font-size: 19px;
+  }
+
+  .semester-card ion-card-subtitle {
+    font-size: 15px;
+  }
+
+  .semester-card .action-container ion-button {
+    font-size: 13px;
+  }
 }

@@ -6,32 +6,18 @@
     <ion-row class="ion-align-items-center">
 
       <ion-col>
-        <h2>Super Admin</h2>
-        <p>Subject Management Overview</p>
+        <h2>Semester 1 (2026-2027)</h2>
+        <p>Current Semester subjects</p>
       </ion-col>
 
       <ion-col size="auto">
-        <ion-button>
+        <ion-button (click)="openAddSub()">
           <i class="fa-solid fa-plus"></i>
           New
         </ion-button>
       </ion-col>
 
     </ion-row>
-
-    <!-- AVAILABLE OR ARCHIVE -->
-    <ion-segment
-      [value]="status"
-      (ionChange)="onStatusChange($event)"
-    >
-      <ion-segment-button value="available">
-        <ion-label>Available</ion-label>
-      </ion-segment-button>
-
-      <ion-segment-button value="archived">
-        <ion-label>Archived</ion-label>
-      </ion-segment-button>
-    </ion-segment>
 
     <!-- SEARCH BAR -->
     <ion-searchbar
@@ -72,5 +58,11 @@
      <!-- CARDS -->
      <app-subject-cards></app-subject-cards>
      
+     <!-- ADD SUBJECT -->
+  <app-add-subject
+    [isOpen]="isAddOpen"
+    (closed)="isAddOpen = false">
+  </app-add-subject>
+
   </ion-grid>
 </ion-content>

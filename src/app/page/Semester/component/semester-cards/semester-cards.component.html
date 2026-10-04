@@ -1,86 +1,29 @@
 <ion-grid>
   <ion-row>
 
-    <ion-col size="12" size-md="3">
-      <ion-card class="semester-card">
+    @for (i of [].constructor(10); track $index) {
+      <ion-col size="12" size-md="3">
+        <ion-card class="semester-card">
 
-        <ion-card-content class="card-content">
-          <ion-card-title>
-            Semester 1 <span>Active</span>
-          </ion-card-title>
+          <ion-card-content class="card-content">
+            <ion-card-title>
+              Semester 1 <span>Active</span>
+            </ion-card-title>
 
-          <ion-card-subtitle>
-            2026-2027
-          </ion-card-subtitle>
-        </ion-card-content>
+            <ion-card-subtitle>
+              2026-2027
+            </ion-card-subtitle>
+          </ion-card-content>
 
-        <div class="card-arrow">
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
+          <div class="action-container">
+            <ion-button>Subjects</ion-button>
+            <ion-button>Sections</ion-button>
+            <ion-button>Classes</ion-button>
+          </div>
 
-      </ion-card>
-    </ion-col>
-    
-    <ion-col size="12" size-md="3">
-      <ion-card class="semester-card">
-
-        <ion-card-content class="card-content">
-          <ion-card-title>
-            Semester 1 <span>Draft</span>
-          </ion-card-title>
-
-          <ion-card-subtitle>
-            2026-2027
-          </ion-card-subtitle>
-        </ion-card-content>
-
-        <div class="card-arrow">
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-
-      </ion-card>
-    </ion-col>
-
-    <ion-col size="12" size-md="3">
-      <ion-card class="semester-card">
-
-        <ion-card-content class="card-content">
-          <ion-card-title>
-            Semester 1 <span>Active</span>
-          </ion-card-title>
-
-          <ion-card-subtitle>
-            2026-2027
-          </ion-card-subtitle>
-        </ion-card-content>
-
-        <div class="card-arrow">
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-
-      </ion-card>
-    </ion-col>
-
-    <ion-col size="12" size-md="3">
-      <ion-card class="semester-card">
-
-        <ion-card-content class="card-content">
-          <ion-card-title>
-            Semester 1 <span>Draft</span>
-          </ion-card-title>
-
-          <ion-card-subtitle>
-            2026-2027
-          </ion-card-subtitle>
-        </ion-card-content>
-
-        <div class="card-arrow">
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-
-      </ion-card>
-    </ion-col>
-
+        </ion-card>
+      </ion-col>
+    }
 
   </ion-row>
 </ion-grid>

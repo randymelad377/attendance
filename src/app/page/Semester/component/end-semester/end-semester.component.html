@@ -1,0 +1,28 @@
+<ion-modal
+  [isOpen]="isOpen"
+  [initialBreakpoint]="0.5"
+  [breakpoints]="[0, 0.5, 0.9]"
+  [handle]="true"
+  (didDismiss)="closeModal()"
+>
+  <ng-template>
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <div>
+          <h2>End Semester</h2>
+          <p>You are not able to start new semester while, last semester is not end yet.</p>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <ion-button expand="block" color="danger">
+          End Semester
+        </ion-button>
+      </div>
+
+    </div>
+
+  </ng-template>
+</ion-modal>

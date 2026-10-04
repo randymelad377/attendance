@@ -5,10 +5,12 @@ import { SuperAdminLayoutComponent } from '../layout/super-admin-layout/super-ad
 import { HomeComponent } from '../page/Home/home/home.component';
 import { SemesterComponent } from '../page/Semester/semester/semester.component';
 import { SubjectComponent } from '../page/Subject/subject/subject.component';
-import { SectionComponent } from '../page/Section/section/section.component';
 import { ClassesComponent } from '../page/Classes/classes/classes.component';
 import { StudentsComponent } from '../page/Students/students/students.component';
 import { NotificationComponent } from '../page/Notification/notification/notification.component';
+import { SectionComponent } from '../page/Section/section/section.component';
+
+import { SpecClassComponent } from '../page/Classes/spec-class/spec-class.component';
 
 export const superAdminRoutes: Routes = [
   {
@@ -34,6 +36,10 @@ export const superAdminRoutes: Routes = [
       {
         path: 'classes',
         component: ClassesComponent,
+      },
+      {
+        path: 'class',
+        component: SpecClassComponent,
       },
       {
         path: 'students',

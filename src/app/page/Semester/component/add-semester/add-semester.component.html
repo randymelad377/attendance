@@ -11,8 +11,8 @@
 
       <div class="modal-header">
         <div>
-          <h2>Subject Details</h2>
-          <p>Update the information below</p>
+          <h2>Semester Details</h2>
+          <p>Create new Subject</p>
         </div>
       </div>
 
@@ -20,10 +20,11 @@
 
         <!-- Subject Name -->
         <div class="input-container">
-          <label for="subjectName">Subject Name</label>
+          <label for="subjectName">Semester (1/2)</label>
           <input
             id="subjectName"
-            type="text"
+            type="number"
+            max="2"
             value="Database Systems"
             placeholder="Enter subject name"
           />
@@ -31,35 +32,19 @@
 
         <!-- Subject Code -->
         <div class="input-container">
-          <label for="subjectCode">Subject Code</label>
+          <label for="subjectCode">YEAR</label>
           <input
             id="subjectCode"
             type="text"
-            value="DBS201"
             placeholder="Enter subject code"
           />
-        </div>
-
-        <!-- Year Level -->
-        <div class="input-container">
-          <label for="yearLevel">Year Level</label>
-
-          <select id="yearLevel" name="yearLevel">
-            <option value="first_year" selected>First Year</option>
-            <option value="second_year">Second Year</option>
-            <option value="third_year">Third Year</option>
-            <option value="fourth_year">Fourth Year</option>
-          </select>
         </div>
 
       </form>
 
       <div class="button-container">
         <ion-button expand="block">
-          Save Changes
-        </ion-button>
-        <ion-button class="red-button" expand="block">
-          Delete
+          Start new semeter
         </ion-button>
       </div>
 

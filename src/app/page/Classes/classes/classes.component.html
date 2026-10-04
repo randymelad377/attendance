@@ -1,3 +1,93 @@
-<p>
-  classes works!
-</p>
+<ion-content>
+
+  <ion-grid class="main-inner-container">
+
+    <!-- Header -->
+    <ion-row class="ion-align-items-center">
+
+      <ion-col>
+        <h2>Semester 1 (2026-2027)</h2>
+        <p>Current Semester classes</p>
+      </ion-col>
+
+      <ion-col size="auto">
+        <ion-button>
+          <i class="fa-solid fa-plus"></i>
+          New
+        </ion-button>
+      </ion-col>
+
+    </ion-row>
+
+    <!-- SEARCH BAR -->
+    <div class="search-sections-container">
+
+      <ion-searchbar
+        [(ngModel)]="searchText"
+        placeholder="Search users..."
+        debounce="300"
+        (ionInput)="search()">
+      </ion-searchbar>
+
+      <ion-select
+        [(ngModel)]="selectedSection"
+        interface="popover"
+        placeholder="Select Section"
+      >
+        <ion-select-option value="all">
+          All Sections
+        </ion-select-option>
+
+        <ion-select-option value="bsit-1a">
+          BSIT 1A
+        </ion-select-option>
+
+        <ion-select-option value="bsit-1b">
+          BSIT 1B
+        </ion-select-option>
+
+        <ion-select-option value="bsit-2a">
+          BSIT 2A
+        </ion-select-option>
+
+        <ion-select-option value="bsit-2b">
+          BSIT 2B
+        </ion-select-option>
+      </ion-select>
+
+    </div>
+
+
+
+    <ion-list>
+      <ion-item *ngFor="let user of filteredUsers">
+        {{ user.name }}
+      </ion-item>
+    </ion-list>
+
+    <!-- YEAR LEVEL -->
+    <ion-segment
+      [value]="year_level"
+      (ionChange)="onYearChange($event)"
+    >
+      <ion-segment-button value="1rst_year">
+        <ion-label>1st Year</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="2nd_year">
+        <ion-label>2nd Year</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="3rd_year">
+        <ion-label>3rd Year</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="4rth_year">
+        <ion-label>4rth Year</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <app-class-cards></app-class-cards>
+
+  </ion-grid>
+</ion-content>
