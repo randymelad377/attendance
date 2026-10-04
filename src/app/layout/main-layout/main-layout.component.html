@@ -1,0 +1,36 @@
+<div class="main-layout">
+
+  <app-sidebar></app-sidebar>
+  
+  <main id="main-content">
+
+      <ion-header>
+          <ion-toolbar>
+
+              <ion-title>CIT Attendance</ion-title>
+
+              <ion-buttons slot="end">
+                <ion-menu-button></ion-menu-button>
+              </ion-buttons>
+
+          </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="content-container">
+        
+          @if (role === 'student') {
+            <app-student-layout></app-student-layout>
+          }
+
+          @else if (role === 'admin') {
+            <app-admin-layout></app-admin-layout>
+          }
+
+          @else if (role === 'super-admin') {
+            <app-super-admin-layout></app-super-admin-layout>
+          }
+
+      </ion-content>
+
+  </main>
+</div>

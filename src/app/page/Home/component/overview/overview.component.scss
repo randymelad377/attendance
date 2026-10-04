@@ -1,0 +1,38 @@
+.dashboard-card {
+  margin: 0;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  min-height: 180px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-card ion-card-header {
+  padding: 20px 20px 10px;
+}
+
+.dashboard-card ion-card-title {
+  font-size: 32px;
+  color: #3880ff;
+  margin-bottom: 10px;
+}
+
+.dashboard-card ion-card-subtitle {
+  color: #333;
+}
+
+.dashboard-card ion-card-subtitle h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.dashboard-card ion-card-content {
+  padding: 10px 20px 20px;
+  color: #666;
+  font-size: 15px;
+}

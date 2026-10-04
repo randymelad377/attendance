@@ -1,0 +1,164 @@
+.action-card {
+  position: relative;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e1e1;
+  border-radius: 14px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+  margin: 10px 0;
+
+  overflow: hidden;
+}
+
+
+/* Header */
+
+.action-card ion-card-header {
+  padding: 20px 20px 12px;
+}
+
+.card-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.subject-name h3 {
+  margin: 0;
+
+  color: #222;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.subject-name p {
+  margin: 5px 0 0;
+
+  color: #777;
+  font-size: 14px;
+}
+
+
+/* Status */
+
+.card-icon > p {
+  margin: 0;
+
+  padding: 6px 11px;
+
+  border-radius: 20px;
+
+  background: #edf7ef;
+  color: #39834b;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Content */
+
+.card-content {
+  padding: 12px 20px 20px;
+}
+
+.card-content ion-card-title {
+  margin-bottom: 18px;
+
+  color: #777;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+
+/* Buttons */
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.action-buttons button {
+  flex: 1;
+
+  height: 40px;
+
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+
+  background: #fff;
+
+  color: #444;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+.action-buttons button:first-child {
+  color: #2563eb;
+  border-color: #cddafa;
+}
+
+.action-buttons button:first-child:hover {
+  background: #f4f7ff;
+}
+
+.action-buttons button:last-child {
+  color: #777;
+}
+
+.action-buttons button:last-child:hover {
+  background: #f7f7f7;
+}
+
+
+/* Arrow */
+
+.card-arrow {
+  position: absolute;
+
+  right: 18px;
+  bottom: 18px;
+
+  color: #aaa;
+  font-size: 14px;
+}
+
+
+/* Grid spacing */
+
+ion-col {
+  padding: 8px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 576px) {
+
+  .action-card {
+    border-radius: 12px;
+  }
+
+  .subject-name h3 {
+    font-size: 18px;
+  }
+
+  .subject-name p {
+    font-size: 14px;
+  }
+
+  .card-content ion-card-title {
+    font-size: 14px;
+  }
+
+}

@@ -1,0 +1,28 @@
+:host {
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+:host::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.main-inner-container {
+  padding: 24px;
+
+  h2 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2937;
+    letter-spacing: -0.5px;
+  }
+
+  p {
+    margin: 6px 0 24px;
+    font-size: 15px;
+    color: #6b7280;
+    font-weight: 400;
+  }
+}

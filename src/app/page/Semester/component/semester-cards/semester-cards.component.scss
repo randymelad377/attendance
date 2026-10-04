@@ -1,0 +1,81 @@
+.semester-card {
+  margin: 0;
+  min-height: 130px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 20px;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+/* Card text */
+.semester-card .card-content {
+  flex: 1;
+  padding: 0;
+}
+
+.semester-card ion-card-title {
+  margin: 0;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  color: #1f2937;
+}
+
+.semester-card ion-card-subtitle {
+  display: block;
+
+  margin-top: 6px;
+
+  font-size: 13px;
+  line-height: 1.4;
+
+  color: #6b7280;
+}
+
+/* Arrow circle */
+.semester-card .card-arrow {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #f3f4f6;
+  color: #4b5563;
+
+  transition: all 0.2s ease;
+}
+
+.semester-card .card-arrow i {
+  font-size: 13px;
+}
+
+/* Hover */
+.semester-card:hover {
+  border-color: #3880ff;
+  box-shadow: 0 6px 18px rgba(56, 128, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.semester-card:hover .card-arrow {
+  background: #3880ff;
+  color: #ffffff;
+  transform: translateX(3px);
+}

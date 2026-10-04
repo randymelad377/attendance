@@ -1,0 +1,23 @@
+<ion-modal
+  [isOpen]="isModalOpen"
+  [initialBreakpoint]="0.5"
+  [breakpoints]="[0, 0.5, 0.9]"
+  [handle]="true"
+  (didDismiss)="isModalOpen = false"
+>
+  <ng-template>
+
+    <div class="modal-content">
+
+      <h2>Subject Details</h2>
+
+      <p>Subject information goes here.</p>
+
+      <ion-button expand="block">
+        Save
+      </ion-button>
+
+    </div>
+
+  </ng-template>
+</ion-modal>
