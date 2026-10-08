@@ -11,6 +11,11 @@ import { NotificationComponent } from '../page/Notification/notification/notific
 import { SectionComponent } from '../page/Section/section/section.component';
 
 import { SpecClassComponent } from '../page/Classes/spec-class/spec-class.component';
+import { ClassSessionsComponent } from '../page/Classes/component/class-sessions/class-sessions.component';
+import { ClassSchedulesComponent } from '../page/Classes/component/class-schedules/class-schedules.component';
+import { ClassStudentsComponent } from '../page/Classes/component/class-students/class-students.component';
+import { ClassSummariesComponent } from '../page/Classes/component/class-summaries/class-summaries.component';
+import { AttendanceComponent } from '../page/Classes/attendance/attendance.component';
 
 export const superAdminRoutes: Routes = [
   {
@@ -35,11 +40,33 @@ export const superAdminRoutes: Routes = [
       },
       {
         path: 'classes',
-        component: ClassesComponent,
+        component: ClassesComponent
+      },
+      {
+        path: 'attendance',
+        component: AttendanceComponent
       },
       {
         path: 'class',
         component: SpecClassComponent,
+        children: [
+          {
+            path: "sessions",
+            component: ClassSessionsComponent
+          },
+          {
+            path: "schedules",
+            component: ClassSchedulesComponent
+          },
+          {
+            path: "students",
+            component: ClassStudentsComponent
+          },
+          {
+            path: "summaries",
+            component: ClassSummariesComponent
+          },
+        ]
       },
       {
         path: 'students',

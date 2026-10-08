@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { IonBadge, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonGrid } from '@ionic/angular';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { IonRouterOutlet, IonBadge, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonGrid, IonLabel, IonSegment, IonSegmentButton, IonSelect } from '@ionic/angular';
+import { ClassSessionsComponent } from '../component/class-sessions/class-sessions.component';
+import { ClassSchedulesComponent } from '../component/class-schedules/class-schedules.component';
+import { ClassStudentsComponent } from '../component/class-students/class-students.component';
+import { ClassSummariesComponent } from '../component/class-summaries/class-summaries.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-spec-class',
@@ -13,13 +19,22 @@ import { IonBadge, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonC
     IonCardTitle,
     IonCardSubtitle,
     IonBadge,
-    IonCardContent
+    IonCardContent,
+    RouterLink,
+    ClassSessionsComponent,
+    ClassSchedulesComponent,
+    ClassStudentsComponent,
+    ClassSummariesComponent,
+    IonSegment,
+    IonSegmentButton,
+    IonLabel,
+    FormsModule,
+    RouterLink,
+    RouterOutlet
   ],
 })
-export class SpecClassComponent  implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {}
+export class SpecClassComponent {
+  
+  selectedSection = 'all';
 
 }

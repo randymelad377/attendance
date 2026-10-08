@@ -1,0 +1,41 @@
+<ion-list class="schedule-list">
+
+  @for (schedule of schedules; track $index) {
+
+    <ion-card class="schedule-card">
+      <ion-card-content>
+
+        <div class="schedule-content">
+
+          <!-- Day -->
+          <div class="day-container">
+            <div class="day-info">
+              <h3>{{ schedule.day | titlecase }}</h3>
+              <p>Class Schedule</p>
+            </div>
+          </div>
+
+          <!-- Time -->
+          <div class="time-container">
+
+            <div class="time">
+              <ion-icon name="time-outline"></ion-icon>
+              <span>{{ schedule.start_time }}</span>
+            </div>
+
+            <span class="time-separator">—</span>
+
+            <div class="time">
+              <span>{{ schedule.end_time }}</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </ion-card-content>
+    </ion-card>
+
+  }
+
+</ion-list>

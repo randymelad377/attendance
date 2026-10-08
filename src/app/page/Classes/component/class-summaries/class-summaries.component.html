@@ -1,0 +1,72 @@
+<ion-list class="attendance-list">
+
+  @for (attendance of attendances; track $index) {
+
+    <ion-card class="attendance-card">
+
+      <ion-card-content>
+
+        <!-- Student Header -->
+        <div class="card-header">
+
+          <div class="name-container">
+
+            <ion-avatar class="student-avatar">
+              <span>
+                {{ attendance.name.trim().charAt(0).toUpperCase() }}
+              </span>
+            </ion-avatar>
+
+            <div class="student-info">
+              <h4>{{ attendance.name }}</h4>
+              <p>{{ attendance.school_id }}</p>
+            </div>
+
+          </div>
+
+          <!-- Status -->
+          <ion-badge
+            [color]="attendance.status === 'normal' ? 'success' : 'warning'"
+          >
+            {{ attendance.status | titlecase }}
+          </ion-badge>
+
+        </div>
+
+        <!-- Attendance Statistics -->
+        <div class="stats-container">
+
+          @for (
+            stat of attendance.attendances | keyvalue;
+            track stat.key
+          ) {
+
+            <div
+              class="stat-card"
+              [class.present]="stat.key === 'present'"
+              [class.absent]="stat.key === 'absent'"
+              [class.late]="stat.key === 'late'"
+              [class.excuse]="stat.key === 'excuse'"
+            >
+
+              <span class="stat-label">
+                {{ stat.key | titlecase }}
+              </span>
+
+              <strong class="stat-value">
+                {{ stat.value }}
+              </strong>
+
+            </div>
+
+          }
+
+        </div>
+
+      </ion-card-content>
+
+    </ion-card>
+
+  }
+
+</ion-list>

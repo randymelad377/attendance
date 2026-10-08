@@ -1,0 +1,46 @@
+<ion-list class="sessions-list">
+
+  @for (session of sessions; track session.session_number) {
+
+    <ion-card class="session-card">
+
+      <ion-card-content>
+
+        <div class="session-header">
+
+          <div class="session-info">
+            <div class="session-number">
+              Session {{ session.session_number }}
+            </div>
+
+            <div class="session-date">
+              <ion-icon name="calendar-outline"></ion-icon>
+               ( {{ session.date }} )
+            </div>
+          </div>
+
+          <ion-badge
+            [color]="session.status === 'met' ? 'success' : 'medium'"
+          >
+            {{ session.status | titlecase }}
+          </ion-badge>
+
+        </div>
+
+        <ion-button
+          expand="block"
+          fill="outline"
+          class="view-button"
+          [routerLink]="['/super-admin/attendance']"
+        >
+          View Session
+          <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+        </ion-button>
+
+      </ion-card-content>
+
+    </ion-card>
+
+  }
+
+</ion-list>

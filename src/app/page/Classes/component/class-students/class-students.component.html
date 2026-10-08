@@ -1,0 +1,24 @@
+<ion-list class="students-list">
+
+  @for (student of students; track student.school_id) {
+
+    <ion-item class="student-item" lines="none">
+
+      <!-- Avatar -->
+      <ion-avatar slot="start" class="student-avatar">
+        <span>
+          {{ student.name.trim().charAt(0).toUpperCase() }}
+        </span>
+      </ion-avatar>
+
+      <!-- Student Information -->
+      <ion-label>
+        <h3>{{ student.name }}</h3>
+        <p>{{ student.school_id }}</p>
+      </ion-label>
+
+    </ion-item>
+
+  }
+
+</ion-list>

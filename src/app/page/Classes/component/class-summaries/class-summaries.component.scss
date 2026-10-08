@@ -1,0 +1,251 @@
+.attendance-list {
+  padding: 8px 0;
+  background: transparent;
+}
+
+/* Main Card */
+
+.attendance-card {
+  margin: 0 0 14px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+
+  background: #ffffff;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+  overflow: hidden;
+
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  ion-card-content {
+    padding: 18px;
+  }
+}
+
+/* Header */
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+
+  padding-bottom: 16px;
+
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.name-container {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  min-width: 0;
+}
+
+/* Avatar */
+
+.student-avatar {
+  width: 44px;
+  height: 44px;
+
+  min-width: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #eff6ff;
+  color: #2563eb;
+
+  font-size: 17px;
+  font-weight: 700;
+}
+
+/* Student Info */
+
+.student-info {
+  min-width: 0;
+}
+
+.student-info h4 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.student-info p {
+  margin: 4px 0 0;
+
+  color: #6b7280;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Status */
+
+.card-header ion-badge {
+  padding: 6px 10px;
+
+  border-radius: 20px;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  text-transform: capitalize;
+
+  white-space: nowrap;
+}
+
+/* Statistics */
+
+.stats-container {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 8px;
+
+  margin-top: 16px;
+}
+
+/* Statistic Card */
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 68px;
+
+  padding: 10px 5px;
+
+  border-radius: 10px;
+
+  background: #f8fafc;
+
+  text-align: center;
+
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+/* Label */
+
+.stat-label {
+  margin-bottom: 5px;
+
+  color: #64748b;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  text-transform: capitalize;
+}
+
+/* Number */
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Colors */
+
+.stat-card.present {
+  background: #f0fdf4;
+
+  .stat-value {
+    color: #16a34a;
+  }
+
+  .stat-label {
+    color: #15803d;
+  }
+}
+
+.stat-card.absent {
+  background: #fef2f2;
+
+  .stat-value {
+    color: #dc2626;
+  }
+
+  .stat-label {
+    color: #b91c1c;
+  }
+}
+
+.stat-card.late {
+  background: #fffbeb;
+
+  .stat-value {
+    color: #d97706;
+  }
+
+  .stat-label {
+    color: #b45309;
+  }
+}
+
+.stat-card.excuse {
+  background: #eff6ff;
+
+  .stat-value {
+    color: #2563eb;
+  }
+
+  .stat-label {
+    color: #1d4ed8;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 500px) {
+
+  .attendance-card {
+    border-radius: 14px;
+
+    ion-card-content {
+      padding: 16px;
+    }
+  }
+
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .student-avatar {
+    width: 40px;
+    height: 40px;
+
+    min-width: 40px;
+  }
+
+  .student-info h4 {
+    font-size: 14px;
+  }
+}

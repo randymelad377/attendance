@@ -1,0 +1,132 @@
+<ion-content>
+  <ion-grid class="main-inner-container">
+
+    <!-- Back -->
+    <div
+      class="back-button"
+    (click)="goBack()"
+    >
+      <i class="fa-solid fa-arrow-left"></i>
+      <span>Back to classes</span>
+    </div>
+
+    <!-- Session Card -->
+    <ion-card class="session-card">
+
+      <ion-card-content>
+
+        <!-- Session Information -->
+        <div class="session-row">
+
+          <div class="session-details">
+
+            <h3>Programming 1</h3>
+
+            <p>
+              Session 4
+              <span>•</span>
+              October 1, 2026
+            </p>
+
+          </div>
+
+          <div class="session-status">
+
+            <strong>3/3</strong>
+
+            <ion-badge color="success">
+              Marked
+            </ion-badge>
+
+          </div>
+
+        </div>
+
+        <!-- Attendance Result -->
+        <div class="attendance-summary">
+          <div class="summary-text">
+            <h4>All students marked</h4>
+            <p>Attendance is complete for this session.</p>
+          </div>
+          <div>
+            <button class="save-button" (click)="openConfirmation()">Save</button>
+          </div>
+        </div>
+
+      </ion-card-content>
+
+    </ion-card>
+
+    <!-- ATTENDANCE MARK -->
+    <div class="attendance-mark-container">
+
+      @for (student of students; track $index) {
+
+        <ion-card class="attendance-card">
+          <ion-card-content>
+
+            <div class="card-header">
+
+              <!-- First letter circle -->
+              <div class="student-avatar">
+                {{ student.name.charAt(0).toUpperCase() }}
+              </div>
+
+              <div class="student-info">
+                <h3>{{ student.name }}</h3>
+                <p>{{ student.school_id }}</p>
+              </div>
+
+            </div>
+
+            <!-- Attendance Actions -->
+            <div class="action-container">
+
+              <button
+                class="attendance-button present"
+                [class.active]="student.mark === 'present'"
+                (click)="student.mark = 'present'"
+              >
+                Present
+              </button>
+
+              <button
+                class="attendance-button absent"
+                [class.active]="student.mark === 'absent'"
+                (click)="student.mark = 'absent'"
+              >
+                Absent
+              </button>
+
+              <button
+                class="attendance-button late"
+                [class.active]="student.mark === 'late'"
+                (click)="student.mark = 'late'"
+              >
+                Late
+              </button>
+
+              <button
+                class="attendance-button excuse"
+                [class.active]="student.mark === 'excuse'"
+                (click)="student.mark = 'excuse'"
+              >
+                Excuse
+              </button>
+
+            </div>
+
+          </ion-card-content>
+        </ion-card>
+
+      }
+
+    </div>
+
+    <app-confirmation-modal
+      [isOpen]="isConfirmationOpen"
+      (closed)="isConfirmationOpen = false">
+    </app-confirmation-modal>
+
+  </ion-grid>
+</ion-content>

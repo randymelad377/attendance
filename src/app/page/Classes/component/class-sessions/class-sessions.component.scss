@@ -1,0 +1,70 @@
+.sessions-list {
+  padding: 8px 0;
+  background: transparent;
+}
+
+.session-card {
+  margin: 0 0 14px;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+  border: 1px solid #e9ecef;
+  background: #ffffff;
+}
+
+.session-card ion-card-content {
+  padding: 18px;
+}
+
+.session-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.session-info {
+  display: flex;
+  gap: 6px;
+}
+
+.session-number {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.session-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.session-date ion-icon {
+  font-size: 17px;
+  color: #64748b;
+}
+
+ion-badge {
+  padding: 7px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+    --color: #ffffff;
+
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.view-button {
+  --border-radius: 10px;
+  --border-width: 1px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  margin: 0;
+
+  font-weight: 600;
+}

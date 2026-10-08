@@ -2,7 +2,7 @@
   <ion-grid class="main-inner-container">
 
     <!-- Back -->
-    <div class="back-button" routerLink="/classes">
+    <div class="back-button" routerLink="/super-admin/classes">
       <i class="fa-solid fa-arrow-left"></i>
       <span>Back to classes</span>
     </div>
@@ -16,7 +16,7 @@
           <div>
             <ion-card-title>Subject Name</ion-card-title>
             <ion-card-subtitle>
-              Subject Code - BSIT2A
+              Subject Code - BSIT2A - Sessions : 20
             </ion-card-subtitle>
           </div>
 
@@ -47,6 +47,32 @@
       </ion-card-content>
 
     </ion-card>
+
+    <!--Class info-->
+    <ion-segment
+      [(ngModel)]="selectedSection"
+      scrollable="true"
+      mode="md"
+    >
+
+      <ion-segment-button [routerLink]="['sessions']" value="bsit-1a">
+        <ion-label>Sessions</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button [routerLink]="['students']" value="bsit-1b">
+        <ion-label>Students</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button [routerLink]="['schedules']" value="bsit-2a">
+        <ion-label>Schedules</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button [routerLink]="['summaries']" value="bsit-2b">
+        <ion-label>Summaries</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <router-outlet></router-outlet>
 
   </ion-grid>
 </ion-content>
