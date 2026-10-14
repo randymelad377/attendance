@@ -31,23 +31,23 @@ export const superAdminRoutes: Routes = [
         component: SemesterComponent,
       },
       {
-        path: 'subject',
+        path: 'subject/:subjectId',
         component: SubjectComponent,
       },
       {
-        path: 'section',
+        path: 'section/:sectionId',
         component: SectionComponent,
       },
       {
-        path: 'classes',
+        path: 'classes/:classId',
         component: ClassesComponent
       },
       {
-        path: 'attendance',
+        path: 'attendance/:attendanceId',
         component: AttendanceComponent
       },
       {
-        path: 'class',
+        path: 'class/:classId',
         component: SpecClassComponent,
         children: [
           {

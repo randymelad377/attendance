@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 import {
   IonCard,
@@ -25,7 +26,8 @@ import {
   IonRow,
   IonCol,
     IonCardSubtitle,
-  IonButton
+  IonButton,
+  RouterLink
 ],
 })
 export class SemesterCardsComponent{
