@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import {
   IonContent,
@@ -22,6 +22,7 @@ import {
 import { FormsModule } from '@angular/forms';
 import {StudentCardsComponent} from '../components/student-cards/student-cards.component';
 import {AddStudentComponent} from '../components/add-student/add-student.component';
+import { UserService } from '../../../services/user-service';
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
@@ -80,6 +81,8 @@ export class StudentsComponent {
     this.isAddOpen = true;
   }
 
+  user = inject(UserService).getUser();
+  role = this.user.role;
 
 
 }

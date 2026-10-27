@@ -1,0 +1,114 @@
+
+<ion-modal
+  [isOpen]="isOpen"
+  [initialBreakpoint]="0.75"
+  [breakpoints]="[0, 0.75, 0.95]"
+  [handle]="true"
+  (didDismiss)="closeModal()"
+>
+  <ng-template>
+    <div class="modal-content">
+
+      <!-- Fixed Header -->
+      <div class="modal-header">
+        <div>
+          <h2>Class Schedules</h2>
+          <p>Add one or more days and times</p>
+        </div>
+      </div>
+
+      <!-- Scrollable Content -->
+      <div class="modal-scroll">
+
+        <form>
+          @for (schedule of schedules; track schedule.id; let i = $index) {
+            <div class="schedule-card">
+
+              <div class="schedule-card-header">
+                <h3>Schedule {{ i + 1 }}</h3>
+
+                @if (schedules.length > 1) {
+                  <ion-button
+                    fill="clear"
+                    color="danger"
+                    size="small"
+                    type="button"
+                    (click)="removeSchedule(schedule.id)"
+                  >
+                    <ion-icon
+                      name="trash-outline"
+                      slot="icon-only">
+                    </ion-icon>
+                  </ion-button>
+                }
+              </div>
+
+              <div class="input-container">
+                <label [for]="'day-' + schedule.id">Day</label>
+                <select
+                  [id]="'day-' + schedule.id"
+                  [name]="'day-' + schedule.id"
+                  [(ngModel)]="schedule.day"
+                  required
+                >
+                  <option value="" disabled>Select day</option>
+                  <option value="Monday">Monday</option>
+                  <option value="Tuesday">Tuesday</option>
+                  <option value="Wednesday">Wednesday</option>
+                  <option value="Thursday">Thursday</option>
+                  <option value="Friday">Friday</option>
+                  <option value="Saturday">Saturday</option>
+                  <option value="Sunday">Sunday</option>
+                </select>
+              </div>
+
+              <div class="time-row">
+                <div class="input-container">
+                  <label [for]="'start-' + schedule.id">Start Time</label>
+                  <input
+                    [id]="'start-' + schedule.id"
+                    [name]="'start-' + schedule.id"
+                    type="time"
+                    [(ngModel)]="schedule.startTime"
+                    required
+                  />
+                </div>
+
+                <div class="input-container">
+                  <label [for]="'end-' + schedule.id">End Time</label>
+                  <input
+                    [id]="'end-' + schedule.id"
+                    [name]="'end-' + schedule.id"
+                    type="time"
+                    [(ngModel)]="schedule.endTime"
+                    required
+                  />
+                </div>
+              </div>
+
+            </div>
+          }
+
+          <ion-button
+            expand="block"
+            fill="outline"
+            type="button"
+            (click)="addSchedule()"
+          >
+            <ion-icon name="add-outline" slot="start"></ion-icon>
+            Add Another Day
+          </ion-button>
+        </form>
+
+      </div>
+
+      <!-- Fixed Bottom Button -->
+      <div class="button-container">
+        <ion-button expand="block" (click)="saveSchedules()">
+          Save Schedules
+        </ion-button>
+      </div>
+
+    </div>
+  </ng-template>
+</ion-modal>

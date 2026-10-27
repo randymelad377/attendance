@@ -10,6 +10,7 @@ import { StudentsComponent } from '../page/Students/students/students.component'
 import { NotificationComponent } from '../page/Notification/notification/notification.component';
 import { SectionComponent } from '../page/Section/section/section.component';
 
+import { AddSemesterComponent } from '../page/Semester/component/add-semester/add-semester.component';
 import { SpecClassComponent } from '../page/Classes/spec-class/spec-class.component';
 import { ClassSessionsComponent } from '../page/Classes/component/class-sessions/class-sessions.component';
 import { ClassSchedulesComponent } from '../page/Classes/component/class-schedules/class-schedules.component';
@@ -31,17 +32,22 @@ export const superAdminRoutes: Routes = [
         component: SemesterComponent,
       },
       {
-        path: 'subject/:subjectId',
+        path: 'add-semester',
+        component: AddSemesterComponent,
+      },
+      {
+        path: 'semester-subjects/:semesterId',
         component: SubjectComponent,
       },
       {
-        path: 'section/:sectionId',
+        path: 'semester-sections/:semesterId',
         component: SectionComponent,
       },
       {
-        path: 'classes/:classId',
+        path: 'semester-classes/:semesterId',
         component: ClassesComponent
       },
+      
       {
         path: 'attendance/:attendanceId',
         component: AttendanceComponent

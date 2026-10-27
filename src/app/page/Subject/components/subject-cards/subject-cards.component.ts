@@ -44,4 +44,6 @@ export class SubjectCardsComponent{
     this.isArchiveOpen = true;
   }
 
+  isSubjectHaveSemester = false;
+
 }

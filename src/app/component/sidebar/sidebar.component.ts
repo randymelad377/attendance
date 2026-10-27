@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { menuOutline } from 'ionicons/icons';
 
@@ -20,6 +20,7 @@ import {
 
 
 } from '@ionic/angular';
+import { UserService } from '../../services/user-service';
 
 @Component({
   selector: 'app-sidebar',
@@ -50,5 +51,6 @@ import {
 export class SidebarComponent{
     menuOutline = menuOutline;
 
-    role = "super-admin";
+  user = inject(UserService).getUser();
+  role = this.user.role;
 }

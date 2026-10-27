@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import {
@@ -10,6 +10,7 @@ import {
   IonCardContent,
   IonCardTitle
 } from '@ionic/angular';
+import { UserService } from '../../../../services/user-service';
 
 @Component({
   selector: 'app-class-cards',
@@ -30,6 +31,9 @@ export class ClassCardsComponent  implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
+  
+  user = inject(UserService).getUser();
+  role = this.user.role;
 
 }

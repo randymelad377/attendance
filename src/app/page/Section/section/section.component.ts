@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 
 import {
   IonContent,
@@ -20,6 +20,8 @@ import { FormsModule } from '@angular/forms';
 import { SectionCardsComponent } from '../components/section-cards/section-cards.component';
 import { AddSectionComponent } from '../components/add-section/add-section.component';
 import { SectionModalComponent } from '../components/section-modal/section-modal.component';
+import { RouterLink } from '@angular/router';
+import { UserService } from '../../../services/user-service';
 
 @Component({
   selector: 'app-section',
@@ -41,7 +43,8 @@ import { SectionModalComponent } from '../components/section-modal/section-modal
     FormsModule,
     SectionCardsComponent,
     AddSectionComponent,
-  SectionModalComponent
+    SectionModalComponent,
+  RouterLink
 ],
 })
 export class SectionComponent {
@@ -81,7 +84,7 @@ export class SectionComponent {
 
   
   //FOR MODALS
-  isModalOpen = false;
+  isModalOpen = true;
   openModal() {
     this.isModalOpen = true;
   }
@@ -91,5 +94,10 @@ export class SectionComponent {
     this.isAddOpen = true;
   }
 
+  isSemesterActive = false;
+
+
+  user = inject(UserService).getUser();
+  role = this.user.role;
 
 }

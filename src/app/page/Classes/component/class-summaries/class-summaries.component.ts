@@ -1,6 +1,7 @@
 import { KeyValuePipe, TitleCasePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { IonAvatar, IonBadge, IonCard, IonCardContent, IonList } from '@ionic/angular';
+import { UserService } from '../../../../services/user-service';
 
 @Component({
   selector: 'app-class-summaries',
@@ -106,4 +107,7 @@ export class ClassSummariesComponent{
       }
     },
   ]
+
+  user = inject(UserService).getUser();
+  role = this.user.role;
 }

@@ -1,24 +1,28 @@
-<ion-list class="students-list">
+<ion-content>
+  <ion-list class="students-list">
+    @for (student of students; track student.school_id) {
+      <ion-item class="student-item" lines="none">
+        <ion-avatar slot="start" class="student-avatar">
+          <span>
+            {{ student.name.trim().charAt(0).toUpperCase() }}
+          </span>
+        </ion-avatar>
 
-  @for (student of students; track student.school_id) {
+        <ion-label>
+          <h3>{{ student.name }}</h3>
+          <p>{{ student.school_id }}</p>
+        </ion-label>
+      </ion-item>
+    }
+  </ion-list>
 
-    <ion-item class="student-item" lines="none">
-
-      <!-- Avatar -->
-      <ion-avatar slot="start" class="student-avatar">
-        <span>
-          {{ student.name.trim().charAt(0).toUpperCase() }}
-        </span>
-      </ion-avatar>
-
-      <!-- Student Information -->
-      <ion-label>
-        <h3>{{ student.name }}</h3>
-        <p>{{ student.school_id }}</p>
-      </ion-label>
-
-    </ion-item>
-
-  }
-
-</ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openAddSub()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <app-join-student
+    [isOpen]="isAddOpen"
+    (closed)="isAddOpen = false">
+  </app-join-student>
+</ion-content>

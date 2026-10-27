@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 
 import {
   IonContent,
@@ -20,6 +20,9 @@ import {
 
 import { FormsModule } from '@angular/forms';
 import { ClassCardsComponent } from '../component/class-cards/class-cards.component';
+import { RouterLink } from '@angular/router';
+import { AdminClassCardsComponent } from '../component/admin-class-cards/admin-class-cards.component';
+import { UserService } from '../../../services/user-service';
 
 @Component({
   selector: 'app-classes',
@@ -40,13 +43,16 @@ import { ClassCardsComponent } from '../component/class-cards/class-cards.compon
     FormsModule,
     ClassCardsComponent,
     IonSelectOption,
-  IonSelect
+    IonSelect,
+    RouterLink,
+  AdminClassCardsComponent
 ],
 })
 export class ClassesComponent{
   
   searchText = '';
   selectedSection = 'all';
+  selectedSubject = 'all';
 
   users = [
     { name: 'John' },
@@ -70,5 +76,7 @@ export class ClassesComponent{
     this.year_level = event.detail.value as string;
   }
   
+  user = inject(UserService).getUser();
+  role = this.user.role;
   
 }

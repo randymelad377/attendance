@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { SemesterCardsComponent } from '../component/semester-cards/semester-cards.component';
 
 import {
@@ -9,8 +9,10 @@ import {
   IonButton,
   IonIcon
 } from '@ionic/angular';
-import { AddSemesterComponent } from '../component/add-semester/add-semester.component';
 import { EndSemesterComponent } from '../component/end-semester/end-semester.component';
+import { RouterLink } from '@angular/router';
+
+import { UserService } from '../../../services/user-service';
 
 @Component({
   selector: 'app-semester',
@@ -24,12 +26,15 @@ import { EndSemesterComponent } from '../component/end-semester/end-semester.com
     IonCol,
     IonButton,
     IonIcon,
-    AddSemesterComponent,
-    EndSemesterComponent
+    EndSemesterComponent,
+    RouterLink
   ],
 })
 export class SemesterComponent{
-  
+
+  user = inject(UserService).getUser();
+  role = this.user.role;
+
   isSemesterOngoing = false;
 
   isEndOpen = false;
@@ -42,5 +47,7 @@ export class SemesterComponent{
 
     this.isAddOpen = true;
   }
+
+  isLastSemesterActive = false;
 
 }

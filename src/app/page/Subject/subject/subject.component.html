@@ -6,16 +6,18 @@
     <ion-row class="ion-align-items-center">
 
       <ion-col>
-        <h2>Semester 1 (2026-2027)</h2>
+        <h2><span [routerLink]="['/', role, 'semester']"><i class="fa-solid fa-arrow-left"></i> &nbsp;</span>Semester 1 (2026-2027)</h2>
         <p>Current Semester subjects</p>
       </ion-col>
 
-      <ion-col size="auto">
-        <ion-button (click)="openAddSub()">
-          <i class="fa-solid fa-plus"></i>
-          New
-        </ion-button>
-      </ion-col>
+      @if(isSemesterActive){
+        <ion-col size="auto">
+          <ion-button (click)="openAddSub()">
+            <i class="fa-solid fa-plus"></i>
+            New
+          </ion-button>
+        </ion-col>
+      }
 
     </ion-row>
 
@@ -64,5 +66,5 @@
     (closed)="isAddOpen = false">
   </app-add-subject>
 
-  </ion-grid>
+</ion-grid>
 </ion-content>

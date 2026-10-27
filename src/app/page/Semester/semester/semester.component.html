@@ -10,12 +10,14 @@
         <p>Overview of the attendance system</p>
       </ion-col>
 
-      <ion-col size="auto">
-        <ion-button (click)="openAddSem()">
-          <i class="fa-solid fa-plus"></i>
-          New
-        </ion-button>
-      </ion-col>
+      @if(!isSemesterOngoing && role === "super-admin"){
+        <ion-col size="auto">
+          <ion-button routerLink="/super-admin/add-semester">
+            <i class="fa-solid fa-plus"></i>
+            New
+          </ion-button>
+        </ion-col>
+      }
 
     </ion-row>
 
@@ -26,11 +28,6 @@
       </ion-col>
     </ion-row>
 
-     <!-- ADD SUBJECT -->
-  <app-add-semester
-    [isOpen]="isAddOpen"
-    (closed)="isAddOpen = false">
-  </app-add-semester>
 
   <app-end-semester
     [isOpen]="isEndOpen"

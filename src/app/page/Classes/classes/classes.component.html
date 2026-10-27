@@ -6,15 +6,8 @@
     <ion-row class="ion-align-items-center">
 
       <ion-col>
-        <h2>Semester 1 (2026-2027)</h2>
+        <h2><span [routerLink]="['/', role, 'semester']"><i class="fa-solid fa-arrow-left"></i> &nbsp;</span> Semester 1 (2026-2027)</h2>
         <p>Current Semester classes</p>
-      </ion-col>
-
-      <ion-col size="auto">
-        <ion-button>
-          <i class="fa-solid fa-plus"></i>
-          New
-        </ion-button>
       </ion-col>
 
     </ion-row>
@@ -54,6 +47,32 @@
           BSIT 2B
         </ion-select-option>
       </ion-select>
+      
+      <ion-select
+        [(ngModel)]="selectedSubject"
+        interface="popover"
+        placeholder="Select Subject"
+      >
+        <ion-select-option value="all">
+          All Subjects
+        </ion-select-option>
+
+        <ion-select-option value="bsit-1a">
+          Computer Programming
+        </ion-select-option>
+
+        <ion-select-option value="bsit-1b">
+          Ethics
+        </ion-select-option>
+
+        <ion-select-option value="bsit-2a">
+          RDBMS
+        </ion-select-option>
+
+        <ion-select-option value="bsit-2b">
+          Hekasi
+        </ion-select-option>
+      </ion-select>
 
     </div>
 
@@ -87,7 +106,11 @@
       </ion-segment-button>
     </ion-segment>
 
-    <app-class-cards></app-class-cards>
+    @if(role === "admin"){
+      <app-admin-class-cards></app-admin-class-cards>
+    }@else{
+      <app-class-cards></app-class-cards>
+    }
 
   </ion-grid>
 </ion-content>

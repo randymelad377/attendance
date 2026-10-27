@@ -27,7 +27,8 @@ import { ConfirmationModalComponent } from '../../../../component/confirmation-m
   IonCol,
   IonCardSubtitle,
     SectionModalComponent,
-  ConfirmationModalComponent
+  ConfirmationModalComponent,
+  
 ],
 })
 export class SectionCardsComponent{
@@ -43,5 +44,7 @@ export class SectionCardsComponent{
   openArchive() {
     this.isArchiveOpen = true;
   }
+
+  isSectionHaveSemester = false;
 
 }

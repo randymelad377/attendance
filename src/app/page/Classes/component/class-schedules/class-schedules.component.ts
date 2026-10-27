@@ -1,13 +1,19 @@
 import { TitleCasePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { addIcons } from 'ionicons';
+import { add, trashOutline, timeOutline } from 'ionicons/icons';
 
 import {
   IonList,
   IonCard,
   IonCardContent,
-  IonIcon
+  IonIcon,
+  IonFab,
+  IonFabButton,
+  IonButton
 } from '@ionic/angular'
-
+import { UserService } from '../../../../services/user-service';
+import { AddSchedulesComponent } from '../add-schedules/add-schedules.component';
 @Component({
   selector: 'app-class-schedules',
   templateUrl: './class-schedules.component.html',
@@ -17,10 +23,22 @@ import {
   IonCard,
   IonCardContent,
     IonIcon,
-  TitleCasePipe
+    TitleCasePipe,
+    IonFab,
+    IonFabButton,
+    AddSchedulesComponent,
+  IonButton
 ],
 })
 export class ClassSchedulesComponent{
+
+  constructor() {
+    addIcons({
+      add,
+      trashOutline,
+      timeOutline
+    });
+  }
   schedules = [
     {
       "day": "monday",
@@ -39,4 +57,17 @@ export class ClassSchedulesComponent{
     },
     
   ]
+
+  removeSchedule(index: number) {
+    this.schedules = this.schedules.filter((_, i) => i !== index);
+  }
+
+  user = inject(UserService).getUser();
+  role = this.user.role;
+
+  isAddScheduleOpen = false;
+
+openAddSchedule() {
+  this.isAddScheduleOpen = true;
+}
 }

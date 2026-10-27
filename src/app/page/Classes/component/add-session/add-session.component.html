@@ -1,0 +1,97 @@
+
+<ion-modal
+  [isOpen]="isOpen"
+  [initialBreakpoint]="0.65"
+  [breakpoints]="[0, 0.65, 0.9]"
+  [handle]="true"
+  (didDismiss)="closeModal()"
+>
+  <ng-template>
+    <div class="modal-content">
+
+      <!-- Header -->
+      <div class="modal-header">
+        <h2>Add Session</h2>
+        <p>Set a session date and select a class schedule.</p>
+      </div>
+
+      <form #sessionForm="ngForm" (ngSubmit)="saveSession()">
+
+        <!-- Session Date -->
+        <div class="input-container">
+          <label for="sessionDate">Session Date</label>
+          <input
+            id="sessionDate"
+            name="sessionDate"
+            type="date"
+            [(ngModel)]="sessionDate"
+            required
+          />
+        </div>
+
+        <!-- Schedule Selection -->
+        <div class="input-container">
+          <label for="schedule">Class Schedule</label>
+
+          <select
+            id="schedule"
+            name="schedule"
+            [(ngModel)]="selectedScheduleIndex"
+            required
+          >
+            <option [ngValue]="null" disabled>
+              Select a schedule
+            </option>
+
+            @for (schedule of schedules; track $index) {
+              <option [ngValue]="$index">
+                {{ schedule.day | titlecase }}
+                ({{ schedule.start_time }} - {{ schedule.end_time }})
+              </option>
+            }
+          </select>
+        </div>
+
+        <!-- Selected Schedule Preview -->
+        @if (selectedScheduleIndex !== null) {
+          <div class="schedule-preview">
+            <ion-icon name="time-outline"></ion-icon>
+
+            <div>
+              <strong>
+                {{ schedules[selectedScheduleIndex].day | titlecase }}
+              </strong>
+              <p>
+                {{ schedules[selectedScheduleIndex].start_time }}
+                -
+                {{ schedules[selectedScheduleIndex].end_time }}
+              </p>
+            </div>
+          </div>
+        }
+
+        <!-- Actions -->
+        <div class="button-container">
+          <ion-button
+            expand="block"
+            type="submit"
+            [disabled]="!sessionForm.valid || selectedScheduleIndex === null"
+          >
+            Create Session
+          </ion-button>
+
+          <ion-button
+            expand="block"
+            fill="clear"
+            color="medium"
+            type="button"
+            (click)="closeModal()"
+          >
+            Cancel
+          </ion-button>
+        </div>
+
+      </form>
+    </div>
+  </ng-template>
+</ion-modal>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import {
@@ -12,6 +12,7 @@ import {
   IonCardSubtitle,
   IonButton
 } from '@ionic/angular';
+import { UserService } from '../../../../services/user-service';
 
 @Component({
   selector: 'app-semester-cards',
@@ -32,6 +33,8 @@ import {
 })
 export class SemesterCardsComponent{
 
+  user = inject(UserService).getUser();
+  role = this.user.role;
   showMenu = false;
 
   @Input() isOngoing = false;

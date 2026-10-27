@@ -1,0 +1,66 @@
+<ion-modal
+  [isOpen]="isOpen"
+  [initialBreakpoint]="0.5"
+  [breakpoints]="[0, 0.5, 0.9]"
+  [handle]="true"
+  (didDismiss)="closeModal()"
+>
+  <ng-template>
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <div>
+          <h2>Student Details</h2>
+          <p>Create new Student</p>
+        </div>
+      </div>
+
+      <form>
+
+        <!-- Student Name -->
+        <div class="input-container">
+          <label for="studentName">Student Name</label>
+          <input
+            id="studentName"
+            type="text"
+            value="John Doe"
+            placeholder="Enter student  name"
+          />
+        </div>
+
+        <!-- Student Id -->
+        <div class="input-container">
+          <label for="studentId">Student Id</label>
+          <input
+            id="studentId"
+            type="text"
+            value="SC-2023-001"
+            placeholder="Enter student id"
+          />
+        </div>
+
+        <!-- Year Level -->
+        <div class="input-container">
+          <label for="yearLevel">Year Level</label>
+
+          <select id="yearLevel" name="yearLevel">
+            <option value="first_year" selected>First Year</option>
+            <option value="second_year">Second Year</option>
+            <option value="third_year">Third Year</option>
+            <option value="fourth_year">Fourth Year</option>
+          </select>
+        </div>
+
+      </form>
+
+      <div class="button-container">
+        <ion-button expand="block">
+          Add Student
+        </ion-button>
+      </div>
+
+    </div>
+
+  </ng-template>
+</ion-modal>

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IonButton, IonModal } from '@ionic/angular';
+import { ConfirmationModalComponent } from '../../../../component/confirmation-modal/confirmation-modal.component';
 
 @Component({
   selector: 'app-add-section',
@@ -7,7 +8,7 @@ import { IonButton, IonModal } from '@ionic/angular';
   styleUrls: ['./add-section.component.scss'],
   imports: [
     IonButton,
-    IonModal
+    IonModal,
   ],
 })
 export class AddSectionComponent{
@@ -19,4 +20,5 @@ export class AddSectionComponent{
   closeModal() {
     this.closed.emit();
   }
+  
 }

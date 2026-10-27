@@ -2,7 +2,7 @@
   <ion-grid class="main-inner-container">
 
     <!-- Back -->
-    <div class="back-button" routerLink="/super-admin/classes/1">
+    <div class="back-button" [routerLink]="['/', role, 'my-classes']">
       <i class="fa-solid fa-arrow-left"></i>
       <span>Back to classes</span>
     </div>
@@ -42,6 +42,9 @@
         <div class="info-row">
           <i class="fa-solid fa-user"></i>
           <span>Adviser: Randy Flores</span>
+          @if(role === "super-admin"){
+            <ion-button (click)="openConfirmation()">Remove Teacher</ion-button>
+          }
         </div>
 
       </ion-card-content>
@@ -55,24 +58,32 @@
       mode="md"
     >
 
-      <ion-segment-button [routerLink]="['sessions']" value="bsit-1a">
-        <ion-label>Sessions</ion-label>
-      </ion-segment-button>
-
-      <ion-segment-button [routerLink]="['students']" value="bsit-1b">
+      <ion-segment-button [routerLink]="['/', role, 'class', 1, 'students']" value="students">
         <ion-label>Students</ion-label>
       </ion-segment-button>
 
-      <ion-segment-button [routerLink]="['schedules']" value="bsit-2a">
+    @if(role == "admin"){
+      <ion-segment-button [routerLink]="['/', role, 'class', 1, 'sessions']" value="">
+        <ion-label>Sessions</ion-label>
+      </ion-segment-button>
+    }
+
+      <ion-segment-button [routerLink]="['/', role, 'class', 1, 'schedules']">
         <ion-label>Schedules</ion-label>
       </ion-segment-button>
 
-      <ion-segment-button [routerLink]="['summaries']" value="bsit-2b">
+      <ion-segment-button [routerLink]="['/', role, 'class', 1, 'summaries']">
         <ion-label>Summaries</ion-label>
       </ion-segment-button>
     </ion-segment>
 
     <router-outlet></router-outlet>
 
+    
   </ion-grid>
+      <app-confirmation-modal
+      [isOpen]="isConfirmationOpen"
+      (closed)="isConfirmationOpen = false">
+    </app-confirmation-modal>
+
 </ion-content>

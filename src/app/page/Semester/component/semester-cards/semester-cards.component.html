@@ -16,9 +16,11 @@
           </ion-card-content>
 
           <div class="action-container">
-            <ion-button routerLink="/super-admin/subject/1">Subjects</ion-button>
-            <ion-button routerLink="/super-admin/section/1">Sections</ion-button>
-            <ion-button routerLink="/super-admin/classes/1">Classes</ion-button>
+            @if(role === "super-admin"){
+              <ion-button [routerLink]="['/', role, 'semester-subjects', 1]">Subjects</ion-button>
+              <ion-button [routerLink]="['/', role, 'semester-sections', 1]">Sections</ion-button>
+            }
+            <ion-button [routerLink]="['/', role, 'semester-classes', 1]">Classes</ion-button>
           </div>
 
         </ion-card>

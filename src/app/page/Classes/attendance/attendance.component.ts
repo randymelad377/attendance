@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
 import {
@@ -10,6 +10,7 @@ import {
   IonIcon
 } from '@ionic/angular';
 import { ConfirmationModalComponent } from '../../../component/confirmation-modal/confirmation-modal.component';
+import { UserService } from '../../../services/user-service';
 
 @Component({
   selector: 'app-attendance',
@@ -77,9 +78,12 @@ export class AttendanceComponent{
     },
   ]
 
-  //OPEN CONFIRMATION
+    //OPEN CONFIRMATION
   isConfirmationOpen = false;
   openConfirmation() {
     this.isConfirmationOpen = true;
   }
+
+  user = inject(UserService).getUser();
+  role = this.user.role;
 }

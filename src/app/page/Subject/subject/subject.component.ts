@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import {
@@ -14,11 +14,15 @@ import {
   SegmentCustomEvent,
   IonSearchbar,
   IonList,
-  IonItem
+  IonItem,
+  IonFab,
+  IonFabButton
 } from '@ionic/angular';
 
 import { SubjectCardsComponent } from '../components/subject-cards/subject-cards.component';
 import { AddSubjectComponent } from '../components/add-subject/add-subject.component';
+import { RouterLink } from '@angular/router';
+import { UserService } from '../../../services/user-service';
 
 @Component({
   selector: 'app-subject',
@@ -39,7 +43,10 @@ import { AddSubjectComponent } from '../components/add-subject/add-subject.compo
   IonItem,
   FormsModule,
     SubjectCardsComponent,
-  AddSubjectComponent
+    AddSubjectComponent,
+    IonFab,
+    IonFabButton,
+  RouterLink
 ],
 })
 export class SubjectComponent {
@@ -82,5 +89,12 @@ export class SubjectComponent {
     this.isAddOpen = true;
   }
 
+  onCheck() {
+    console.log('Check button clicked');
+    // Add your check/confirm logic here
+  }
 
+  isSemesterActive = true;
+  user = inject(UserService).getUser();
+  role = this.user.role;
 }

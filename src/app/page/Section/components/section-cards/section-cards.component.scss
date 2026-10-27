@@ -113,11 +113,13 @@
 }
 
 .action-buttons button:last-child {
-  color: #777;
+  color: white;
+  background: rgb(197, 21, 21);
 }
 
 .action-buttons button:last-child:hover {
-  background: #f7f7f7;
+  color: white;
+  background: rgb(241, 44, 44);
 }
 
 

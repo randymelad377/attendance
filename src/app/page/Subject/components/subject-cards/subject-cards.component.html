@@ -17,10 +17,12 @@
             Year Level
           </ion-card-title>
 
-          <div class="action-buttons">
-            <button (click)="openModal()">Edit</button>
-            <button (click)="openArchive()">Archive</button>
-          </div>
+          @if(!isSubjectHaveSemester){
+            <div class="action-buttons">
+              <button (click)="openModal()">Edit</button>
+              <button (click)="openArchive()">Delete</button>
+            </div>
+          }
         </ion-card-content>
       </ion-card>
     </ion-col>
