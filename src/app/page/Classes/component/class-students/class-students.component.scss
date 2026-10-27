@@ -1,3 +1,4 @@
+
 .students-list {
   padding: 8px 0;
   background: transparent;
@@ -11,15 +12,15 @@
   --padding-top: 10px;
   --padding-bottom: 10px;
   --inner-padding-end: 0;
+  --border-radius: 14px;
 
   margin-bottom: 10px;
-
   border: 1px solid #e5e7eb;
   border-radius: 14px;
-
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
 
   transition: all 0.2s ease;
+  cursor: pointer;
 
   &:hover {
     --background: #f8fafc;
@@ -32,6 +33,7 @@
 .student-avatar {
   width: 44px;
   height: 44px;
+  flex-shrink: 0;
 
   display: flex;
   align-items: center;
@@ -49,9 +51,7 @@
 /* Student Name */
 .student-item ion-label h3 {
   margin: 0;
-
   color: #111827;
-
   font-size: 15px;
   font-weight: 700;
 }
@@ -59,12 +59,12 @@
 /* School ID */
 .student-item ion-label p {
   margin: 4px 0 0;
-
   color: #6b7280;
-
   font-size: 12px;
   font-weight: 500;
 }
+
+/* Floating Add Button */
 ion-fab {
   position: fixed;
   z-index: 9999;
@@ -75,4 +75,102 @@ ion-fab-button {
   --background: #3880ff;
   --color: #ffffff;
   --size: 56px;
+}
+
+/* ========================================
+   REMOVE STUDENT MODAL
+======================================== */
+
+/* Main Modal Content */
+.remove-modal-content {
+  padding: 24px 20px;
+  padding-bottom: calc(24px + env(safe-area-inset-bottom));
+  text-align: center;
+  color: #111827;
+}
+
+/* Warning / Trash Icon */
+.remove-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #dc2626;
+
+  ion-icon {
+    font-size: 28px;
+  }
+}
+
+/* Modal Heading */
+.remove-modal-content h2 {
+  margin: 0 0 10px;
+  color: #111827;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+/* Confirmation Description */
+.modal-description {
+  margin: 0 0 22px;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Selected Student Details */
+.student-preview {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 14px;
+  margin-bottom: 24px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #f9fafb;
+
+  text-align: left;
+}
+
+/* Student Information */
+.student-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.student-info h3 {
+  margin: 0;
+  color: #111827;
+  font-size: 15px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.student-info p {
+  margin: 5px 0 0;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Modal Action Buttons */
+.modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  ion-button {
+    height: 46px;
+    margin: 0;
+    --border-radius: 12px;
+    font-weight: 600;
+  }
 }

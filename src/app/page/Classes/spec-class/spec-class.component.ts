@@ -50,4 +50,11 @@ export class SpecClassComponent {
     this.isConfirmationOpen = true;
   }
 
+  semesterId = 1;
+  
+back = this.role === 'admin'
+  ? ['/admin/my-classes']
+  : [`/${this.role}/semester-classes/${this.semesterId}`];
+
+  isSemesterActive = false;
 }

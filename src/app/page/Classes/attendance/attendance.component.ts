@@ -86,4 +86,6 @@ export class AttendanceComponent{
 
   user = inject(UserService).getUser();
   role = this.user.role;
+
+  isSemesterActive = false;
 }

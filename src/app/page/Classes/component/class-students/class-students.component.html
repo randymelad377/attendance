@@ -1,7 +1,14 @@
+
 <ion-content>
   <ion-list class="students-list">
     @for (student of students; track student.school_id) {
-      <ion-item class="student-item" lines="none">
+      <ion-item
+        class="student-item"
+        lines="none"
+        button
+        detail="false"
+        (click)="openRemoveModal(student)"
+      >
         <ion-avatar slot="start" class="student-avatar">
           <span>
             {{ student.name.trim().charAt(0).toUpperCase() }}
@@ -16,13 +23,74 @@
     }
   </ion-list>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="openAddSub()">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+  @if(isSemesterActive){
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="openAddSub()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  }
+
+  <!-- Add Student Modal -->
   <app-join-student
     [isOpen]="isAddOpen"
     (closed)="isAddOpen = false">
   </app-join-student>
+
+  <!-- Remove Student Modal -->
+  <ion-modal
+    [isOpen]="isRemoveOpen"
+    [initialBreakpoint]="0.4"
+    [breakpoints]="[0, 0.4, 0.65]"
+    [handle]="true"
+    (didDismiss)="closeRemoveModal()"
+  >
+    <ng-template>
+      <div class="remove-modal-content">
+
+        <div class="remove-icon">
+          <ion-icon name="trash-outline"></ion-icon>
+        </div>
+
+        <h2>Remove Student?</h2>
+        <p class="modal-description">
+          Are you sure you want to remove this student from the class?
+        </p>
+
+        <div class="student-preview">
+          <ion-avatar class="student-avatar">
+            <span>
+              {{ selectedStudent?.name?.trim()?.charAt(0)?.toUpperCase() }}
+            </span>
+          </ion-avatar>
+
+          <div class="student-info">
+            <h3>{{ selectedStudent?.name }}</h3>
+            <p>{{ selectedStudent?.school_id }}</p>
+          </div>
+        </div>
+
+        <div class="modal-buttons">
+          <ion-button
+            expand="block"
+            fill="outline"
+            color="medium"
+            (click)="closeRemoveModal()"
+          >
+            Cancel
+          </ion-button>
+
+          <ion-button
+            expand="block"
+            color="danger"
+            (click)="confirmRemoveStudent()"
+          >
+            <ion-icon name="trash-outline" slot="start"></ion-icon>
+            Remove Student
+          </ion-button>
+        </div>
+
+      </div>
+    </ng-template>
+  </ion-modal>
 </ion-content>

@@ -7,7 +7,24 @@
   flex-direction: column;
   gap: 1em;
 }
+.contentContainer{
+  height: 50vh;
+  overflow: scroll;
+}
+.contentContainer {
+  height: 50vh;
+  overflow: auto;
 
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* Internet Explorer and old Edge */
+  -ms-overflow-style: none;
+}
+
+.contentContainer::-webkit-scrollbar {
+  display: none;
+}
 /* Back button */
 .back-button {
   display: inline-flex;

@@ -1,6 +1,8 @@
+
 import { Component, inject } from '@angular/core';
 import { addIcons } from 'ionicons';
-import { add } from 'ionicons/icons';
+import { add, trashOutline } from 'ionicons/icons';
+
 import {
   IonContent,
   IonAvatar,
@@ -9,11 +11,18 @@ import {
   IonIcon,
   IonItem,
   IonLabel,
-  IonList
+  IonList,
+  IonModal,
+  IonButton
 } from '@ionic/angular';
 
 import { UserService } from '../../../../services/user-service';
 import { JoinStudentComponent } from '../join-student/join-student.component';
+
+interface Student {
+  name: string;
+  school_id: string;
+}
 
 @Component({
   selector: 'app-class-students',
@@ -29,27 +38,56 @@ import { JoinStudentComponent } from '../join-student/join-student.component';
     IonFab,
     IonFabButton,
     IonIcon,
+    IonModal,
+    IonButton,
     JoinStudentComponent
   ],
 })
 export class ClassStudentsComponent {
-
   constructor() {
-    addIcons({ add });
+    addIcons({ add, trashOutline });
   }
 
   user = inject(UserService).getUser();
   role = this.user.role;
 
-  isAddOpen = false; // Important: keep it closed initially
+  isAddOpen = false;
+  isRemoveOpen = false;
 
-  students = [
+  students: Student[] = [
     { name: 'Randy Flores', school_id: 'SC0001' },
     { name: 'Randy Flores', school_id: 'SC0002' },
     { name: 'Randy Flores', school_id: 'SC0003' }
   ];
 
+  selectedStudent: Student | null = null;
+
   openAddSub() {
     this.isAddOpen = true;
+  }
+
+  isSemesterActive = false;
+  openRemoveModal(student: Student) {
+    if(!this.isSemesterActive) return;
+    this.selectedStudent = student;
+    this.isRemoveOpen = true;
+  }
+
+  closeRemoveModal() {
+    this.isRemoveOpen = false;
+    this.selectedStudent = null;
+  }
+
+  
+  confirmRemoveStudent() {
+    if (!this.selectedStudent) return;
+
+    const schoolId = this.selectedStudent.school_id;
+
+    this.students = this.students.filter(
+      student => student.school_id !== schoolId
+    );
+
+    this.closeRemoveModal();
   }
 }

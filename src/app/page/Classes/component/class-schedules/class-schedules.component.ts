@@ -70,4 +70,6 @@ export class ClassSchedulesComponent{
 openAddSchedule() {
   this.isAddScheduleOpen = true;
 }
+
+  isSemesterActive = false;
 }

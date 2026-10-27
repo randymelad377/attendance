@@ -78,5 +78,7 @@ export class ClassesComponent{
   
   user = inject(UserService).getUser();
   role = this.user.role;
+
+  isSemesterActive = false;
   
 }

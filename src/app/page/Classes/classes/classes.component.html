@@ -106,7 +106,7 @@
       </ion-segment-button>
     </ion-segment>
 
-    @if(role === "admin"){
+    @if(role === "admin" && isSemesterActive){
       <app-admin-class-cards></app-admin-class-cards>
     }@else{
       <app-class-cards></app-class-cards>
